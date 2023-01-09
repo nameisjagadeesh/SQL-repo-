@@ -48,3 +48,6 @@ INSERT INTO games VALUES(37,'football','neymer','brazil',11,32,1,'cup',10,456321
 INSERT INTO games VALUES(38,'cricket','dhoni','india',11,10,1,'cup',7,186523);
 INSERT INTO games VALUES(39,'archary','gabriela','netharland',15,12,3,'trophy',12,956618);
 INSERT INTO games VALUES(40,'alpine','denzler','usa',3,10,3,'trophy',65,432569);
+
+
+ALTER TABLE games ADD COLUMN owner_name varchar(20) default 'jagadeesh';
