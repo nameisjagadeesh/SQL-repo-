@@ -62,3 +62,4 @@ INSERT INTO cricket VALUES(50,'gayle','india',40,'pks',38,'married',12,42,0,1325
 SELECT count(*) from cricket;
 
 ALTER TABLE cricket ADD COLUMN alive_status varchar(20) default 'alive';
+ALTER TABLE cricket ADD COLUMN(origin varchar(30),lifestyle varchar(30));
