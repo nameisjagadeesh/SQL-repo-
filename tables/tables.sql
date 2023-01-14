@@ -30,3 +30,5 @@ RENAME TABLE river TO oceans;
 SELECT * FROM oceans;
 DROP TABLE oceans;
 TRUNCATE TABLE oceans;
+
+

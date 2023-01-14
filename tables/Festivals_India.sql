@@ -64,3 +64,16 @@ INSERT INTO festival VALUES(50,'teej','NE','community','modern_times','nuts','ma
 SELECT count(*) FROM festival;
 
 ALTER TABLE festival ADD COLUMN dance   varchar(30) default 'dollukunita';
+
+
+
+
+
+
+
+CREATE TABLE bank(id int,name varchar(20),amount decimal(10.3),timeoftransaction timestamp, isActive boolean );
+
+
+INSERT INTO bank  VALUES(1,'BOB',2562365.25,now(),true),(2,'SBI',652265.12,now(),false);
+SELECT * FROM bank;
+SELECT * FROM bank WHERE id=2;

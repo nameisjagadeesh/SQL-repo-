@@ -117,8 +117,33 @@ ALTER TABLE movies MODIFY hero varchar(30) after actress;
 SELECT * FROM movies;
 
 SELECT * FROM movies WHERE hero='vijay' AND actress='pooja' AND sl_no=21;
+SELECT * FROM movies WHERE hero='yash' AND actress='srinidhi' ;
+SELECT * FROM movies WHERE hero='chiru' AND actress='pooja' ;
+SELECT * FROM movies WHERE director='lokesh' AND hero='vijay' ;
+SELECT * FROM movies WHERE hero='prabhas' AND actress='ansuhka' ;
+
 SELECT * FROM movies WHERE hero='vijay' OR actress='arthi';
 SELECT * FROM movies WHERE (hero='vijay' OR actress='arthi') and director='lokesh';
+SELECT * FROM movies WHERE director='shiva' OR actress='pooja';
+SELECT * FROM movies WHERE hero='prabhas' OR actress='shruti';
+SELECT * FROM movies WHERE actress='pooja' OR streamed_in='yt';
+
+
+UPDATE movies SET hero ='prashant' WHERE sl_no=3;
+UPDATE movies SET director ='jagadeesh' WHERE sl_no=3 AND cameras =55;
+UPDATE movies SET actress ='aishwarya Rai' WHERE sl_no=3;
+UPDATE movies SET movie_name ='ondagona_baa' WHERE sl_no=3;
+UPDATE movies SET streamed_in ='X-Workz' WHERE sl_no=3;
+UPDATE movies SET cameras=25 WHERE sl_no=1;
+UPDATE movies SET sideactors=283 WHERE budget=123652;
+UPDATE movies SET actress='anupama' WHERE movie_name='kartikey';
+UPDATE movies SET hero ='chiranjeevi' WHERE director='shiva';
+UPDATE movies SET director ='shiva' WHERE hero='chirajeevi';
+
+
+
+
+
 
 
 
