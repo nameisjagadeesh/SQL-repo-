@@ -141,11 +141,61 @@ UPDATE movies SET hero ='chiranjeevi' WHERE director='shiva';
 UPDATE movies SET director ='shiva' WHERE hero='chirajeevi';
 UPDATE movies SET director ='prashant',cameras =28 WHERE sl_no=4 AND hero='nikhil';
 
+DELETE FROM  movies WHERE movie_name='lagn';
+DELETE FROM movies WHERE sl_no=2;
+DELETE FROM movies WHERE director='neel' AND sl_no=13;
+DELETE FROM movies WHERE hero='prabhas' AND sl_no=9;
+DELETE FROM movies WHERE director='dev' AND sl_no=10;
+
+/*
+it will delete the full row 
+
+
+*/
+
+ROllBACK;
 
 
 
+CREATE TABLE test(id int ,valuess bigint);
+
+SELECT * FROM test;
+
+INSERT INTO test VALUES(1,25632);
+INSERT INTO test VALUES(2,36522);
+
+INSERT INTO test VALUES(3,65232);
+
+SAVEPOINT A;
+
+ROLLBACK TO A;
+
+SELECT * FROM movies WHERE sl_no IN(5,28,2,6,15);
+SELECT * FROM movies WHERE sl_no IN(2,5,7,8,14);
+SELECT * FROM movies WHERE sl_no IN(6,4,9,26,30);
+SELECT * FROM movies WHERE sl_no IN(3,10,16,19,17);
+SELECT * FROM movies WHERE sl_no IN(29,25,35,4,33);
 
 
+
+SELECT * FROM movies WHERE sl_no NOT IN(7,16,17,25);
+SELECT * FROM movies WHERE sl_no NOT IN(8,15,18,24);
+SELECT * FROM movies WHERE sl_no NOT IN(9,14,19,23);
+SELECT * FROM movies WHERE sl_no NOT IN(10,13,20,22);
+SELECT * FROM movies WHERE sl_no NOT IN(11,12,21,21);
+
+SELECT * FROM movies WHERE sl_no BETWEEN 6 AND 15;
+SELECT * FROM movies WHERE sl_no BETWEEN 12 AND 23;
+SELECT * FROM movies WHERE sl_no BETWEEN 20 AND 32;
+SELECT * FROM movies WHERE sl_no BETWEEN 15 AND 37;
+SELECT * FROM movies WHERE sl_no BETWEEN 1 AND 11;
+
+
+/*
+IN -to avoid multiple ORs conditions
+NOT IN -to exclude the perticular data
+Between- to select withing the ranges
+*/
 
 
 
