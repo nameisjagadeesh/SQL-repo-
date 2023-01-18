@@ -195,7 +195,70 @@ SELECT * FROM movies WHERE sl_no BETWEEN 1 AND 11;
 IN -to avoid multiple ORs conditions
 NOT IN -to exclude the perticular data
 Between- to select withing the ranges
+%= will match any string of any length
+%s=find words which  ends with s
+s%=find letters which starts with s 
+%s%=will find words contains s anywhere
+LIKE operator used for varchar
+UPPER and LOWER=convert data into uppercase and lowercase ,here original data will not be modified
+concat= will join any two columns,here as used as alias which is a temporary column name
+Instr=to find out the any position of any single charecter ,if string contains duplicate chars it will always take first char,takes only one parameter
+Substr= to find only some of the charecters,
+SUBSTR(stringvalue,startposition,noofcharecter),takes only one parameter
+distinct =to avoid the duplicate values and return the unique values,takes only one parameter
 */
+
+SELECT * FROM movies WHERE movie_name LIKE 'k%';
+SELECT * FROM movies WHERE movie_name LIKE '%k';
+SELECT * FROM movies WHERE movie_name LIKE 's%';
+SELECT * FROM movies WHERE movie_name LIKE '%s';
+SELECT * FROM movies WHERE movie_name LIKE '%m';
+SELECT * FROM movies WHERE director LIKE 's%';
+SELECT * FROM movies WHERE movie_name LIKE '%s%'; 
+SELECT * FROM movies WHERE movie_name LIKE '%j%'; 
+
+SELECT UPPER (hero) from movies;
+SELECT LOWER(director) from movies;
+SELECT LOWER ('ABSGSJSG');
+
+SELECT CONCAT ('Jagadeesh','Allagi');
+SELECT CONCAT (movie_name,hero) from movies;
+SELECT CONCAT (movie_name,'=',hero) as details  from movies;
+SELECT CONCAT (movie_name,'=',hero,'=',director) as details  from movies;
+
+SELECT INSTR('JAGADEESHALLAGIKADAKOLBIJAPUR','I') as position;
+SELECT INSTR('JAGADEESHALLAGIKADAKOLBIJAPUR','R') as position;
+SELECT INSTR('JAGADEESHALLAGIKADAKOLBIJAPUR','a') as position;
+
+
+SELECT INSTR(hero,'a') as position from movies;
+SELECT INSTR(director,'a') as position from movies;
+SELECT INSTR(director,'a'),director  from movies;
+
+SELECT SUBSTR('JAgadeeshAllagi',2,6);
+SELECT SUBSTR('JAgadeeshAllagi',3,7);
+SELECT SUBSTR(hero,2,3) ,hero from movies;
+SELECT SUBSTR(streamed_in,5,4) ,streamed_in from movies;
+
+SELECT DISTINCT (streamed_in) from movies;
+SELECT DISTINCT (hero) from movies;
+SELECT DISTINCT (director) from movies;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
