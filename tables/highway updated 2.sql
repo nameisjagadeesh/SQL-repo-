@@ -206,6 +206,15 @@ Instr=to find out the any position of any single charecter ,if string contains d
 Substr= to find only some of the charecters,
 SUBSTR(stringvalue,startposition,noofcharecter),takes only one parameter
 distinct =to avoid the duplicate values and return the unique values,takes only one parameter
+~~~~~~~~~~$$$~~~~~~~~~~
+Agrregate Functions= perform calculation on a colums,these are only used for numeric data
+and original data will not be modified
+1.COUNT= SELECT * from table_name ,it will check no of rows
+2.SUM= sum all the data from column
+3.MAX=find max value
+4.MIN ,AVG
+ENUM=is a kind of datatype,selects from that constants only ,we can select the enum name or position of the enum type
+LENGTH=calculate the length of charecters in a colum ,only used one column
 */
 
 SELECT * FROM movies WHERE movie_name LIKE 'k%';
@@ -243,6 +252,26 @@ SELECT SUBSTR(streamed_in,5,4) ,streamed_in from movies;
 SELECT DISTINCT (streamed_in) from movies;
 SELECT DISTINCT (hero) from movies;
 SELECT DISTINCT (director) from movies;
+
+SELECT COUNT(hero)  as no_of_records from movies;
+SELECT SUM(breakevn) from movies; 
+SELECT MAX(breakevn) as highest_breakEven from movies;
+SELECT MIN(breakevn) as lowest_breakEven from movies;
+SELECT AVG(breakevn) as avg_breakEven from movies;
+
+CREATE TABLE cric_info(id int, cric_type enum('odi','test','t20'),overs int ,location varchar(30));
+
+SELECT * FROM cric_info;
+
+INSERT INTO cric_info VALUES(1,'test',90,'hyderabad');
+INSERT INTO cric_info VALUES(2,1,50,'pune');
+
+SELECT LENGTH(actress) as length_of_actress from movies;
+SELECT LENGTH(breakevn) as length_of_breakevn from movies;
+
+
+
+
 
 
 

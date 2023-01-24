@@ -107,8 +107,3 @@ SELECT SUBSTR(material,1,6),material from currencies;
 
 
 
-
-
-
-
-

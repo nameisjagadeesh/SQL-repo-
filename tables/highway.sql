@@ -120,6 +120,8 @@ SELECT * FROM movies WHERE hero='vijay' AND actress='pooja' AND sl_no=21;
 SELECT * FROM movies WHERE hero='vijay' OR actress='arthi';
 SELECT * FROM movies WHERE (hero='vijay' OR actress='arthi') and director='lokesh';
 
+UPDATE movies SET hero ='prashant' WHERE sl_no=3;
+
 
 
 
