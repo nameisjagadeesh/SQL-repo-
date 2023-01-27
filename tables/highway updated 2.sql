@@ -215,6 +215,18 @@ and original data will not be modified
 4.MIN ,AVG
 ENUM=is a kind of datatype,selects from that constants only ,we can select the enum name or position of the enum type
 LENGTH=calculate the length of charecters in a colum ,only used one column
+~~~~~~~~~~~~~~~~~~~~~~~~~26th jan~~~~~~~~~~~~~~~~~~~~~
+4>primary key-uniqly identifies each n evry row and column,bydefault it has unique and not null constarints
+every table has primary key,but each table has only one primarykey,column can have multiple primarykey
+Foreign key=is a column in one table to primary key of other table
+primary key is present in parent table ,u cant drop the parent table ,first child table should be dropped
+foreign key is present in child table  ,it can accept duplicate values
+primary key and foreign key should always be same n these are table level constarints 
+not null,unique,check are the column level constraints
+purpose of foreign and primary key is to establish the relation between two tables
+autoincrement-only for ids where it is not duplicated ,
+currentdate : SELECT current_date();
+datediff= SELECT datediff('2023-01-25',2023-01-12);
 */
 
 SELECT * FROM movies WHERE movie_name LIKE 'k%';
@@ -268,6 +280,82 @@ INSERT INTO cric_info VALUES(2,1,50,'pune');
 
 SELECT LENGTH(actress) as length_of_actress from movies;
 SELECT LENGTH(breakevn) as length_of_breakevn from movies;
+
+
+CREATE TABLE soap(id int primary key,name varchar(30),brand varchar(30),price int not null );
+SELECT * FROM soap;
+INSERT INTO soap VALUES(1,'mysore_sandal','msil',45);
+INSERT INTO soap VALUES(2,'mysore_sandal','msil',45);
+INSERT INTO soap VALUES(3,'nivea','niviabrand',85);
+
+CREATE TABLE shampoo(id int,name varchar(30),primary key(id,name),brand varchar(30))
+/*here id and name combination should not be duplicated */
+SELECT * FROM shampoo;
+INSERT INTO shampoo VALUES(1,'loreal','kintel');
+INSERT INTO shampoo VALUES(1,'clinicPlus','plus');
+
+CREATE TABLE flight(id int not null,passanger_name varchar(30) unique,flightname varchar(30),flight_no int primary key);
+SELECT * FROM flight;
+INSERT INTO flight VALUE(1,'jaga','boeing',35);
+INSERT INTO flight VALUE(2,'rudra','kingfisher',65);
+INSERT INTO flight VALUE(3,'jai','indigo',25);
+INSERT INTO flight VALUE(4,'parsham','air',15);
+
+CREATE TABLE customer(id int ,name varchar(30),c_flight_no int ,sources varchar(30),foreign key (c_flight_no) references flight(flight_no));
+INSERT INTO customer VALUES (1,'pradeep',65,'mumbai');
+here the flight number should be same in both customer and flight
+INSERT INTO customer VALUES (2,'sai',25,'usa');
+
+SELECT * FROM customer;
+
+CREATE TABLE train(id int primary key auto_increment,name varchar(30),price int);
+INSERT INTO train(name,price) VALUES('vande barat',652);
+INSERT INTO train(name,price) VALUES('barat',856);
+INSERT INTO train(name,price) VALUES('shaabdi',453);
+
+SELECT * FROM train;
+
+ALTER TABLE train ADD constraint price_unique unique(price);
+ALTER TABLE train ADD constraint name_unique unique(name);
+ALTER TABLE train modify name varchar(60) not null;
+
+SELECT current_date();
+SELECT datediff('2020-01-26','2023-01-26');
+SELECT adddate('2023-01-26' ,interval 6 month);
+SELECT adddate('2023-01-26' ,interval 6 day);
+SELECT adddate('2023-01-26' ,interval 6 hour);
+SELECT adddate('2023-01-26' ,interval 6 minute);
+SELECT adddate('2023-01-26' ,interval 6 second);
+SELECT adddate('2023-01-26' ,interval -6 week);
+SELECT adddate('2023-01-26' ,interval -6 month);
+SELECT adddate('2023-01-26' ,interval 6 quarter);
+SELECT adddate('2023-01-26' ,interval -6 quarter);
+SELECT adddate('2023-01-26' ,interval 6 year);
+SELECT dayofmonth('2023-01-26');
+SELECT dayofweek('2023-01-26');
+SELECT dayofyear('2023-01-26');
+SELECT dayname('2023-01-26');
+SELECT last_day('2023-06-5');
+SELECT makedate(2023,6);
+SELECT maketime(11,6,23);
+SELECT monthname('2023-8-25');
+SELECT quarter('2024-6-15');
+SELECT weekofyear('2023-11-26');
+
+
+CREATE TABLE train_dup select * from train;
+select * from train_dup;
+
+CREATE TABLE train_info  as select id,price from train;
+select * from train_info;
+
+
+
+
+
+
+
+
 
 
 

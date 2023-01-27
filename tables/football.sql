@@ -43,9 +43,6 @@ commit;
 
 SELECT COUNT(*) FROM football_info;
 
-/*
-select,where,or,and,in,notin,btn,rollback,savpoint,like,distinct,instr,substr,upper,lowe,cocat,sum,max,min,avg,enum
-*/
 
 SELECT * FROM football_info;
 
@@ -103,6 +100,7 @@ SELECT MIN(age) from football_info;
 
 SELECT LENGTH(club) from football_info;
 SELECT LENGTH(player_name) from football_info;
+
 
 
 

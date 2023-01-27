@@ -46,5 +46,27 @@ SELECT * FROM mountains order by rivers desc;
 SELECT * FROM mountains order by name desc;
 
 
+/*   task on adding constraints */
+ALTER TABLE mountains ADD constraint country_unique unique(country);
+ALTER TABLE mountains ADD constraint visitors_check check(visitors>15);
+ALTER TABLE mountains ADD constraint river_primarykey primary key(river);
+INSERT INTO mountains VALUES(21,'kedarhill',3,2,2563,7,'thai',16,'kohima',9,146);
+INSERT INTO mountains VALUES(22,'gasherbrum',4,1,2145,8,'laos',25,'kegra',20,125);
+
+CREATE TABLE valley(id int not null,name varchar(30),state varchar(30),river varchar(30),foreign key(river) references mountains(river));
+SELECT * FROM valley;
+INSERT INTO valley VALUES(1,'zumbal','UK','kegra');
+INSERT INTO valley VALUES(2,'libun','hp','kohima');
+INSERT INTO valley VALUES(3,'zozila','jk','kegra');
+INSERT INTO valley VALUES(4,'netra','bihar','kohima');
+INSERT INTO valley VALUES(5,'rubi','punjab','kegra');
+INSERT INTO valley VALUES(6,'queen','up','kohima');
+
+
+
+
+
+
+
 
 
